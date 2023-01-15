@@ -6,6 +6,14 @@ import functionalities.MovieData;
 import java.util.ArrayList;
 
 final class Output {
+    private static Output instance = null;
+    private Output() { };
+    public static Output getInstance() {
+        if (instance == null) {
+            instance = new Output();
+        }
+        return instance;
+    }
     public void outputgenerator(final ArrayNode output,
                                 final ArrayList<MovieData> currentMoviesList,
                                 final UserData currUser, final ObjectMapper objectMapper) {

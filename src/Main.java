@@ -29,7 +29,7 @@ public final class Main {
         String currPage = "Homepage Neautentificat";
 
         // an object to generate the output
-        Output outputGenerator = new Output();
+        Output outputGenerator = Output.getInstance();
 
         // getting the number of commands
         int commandCount = inputData.getActions().size();
