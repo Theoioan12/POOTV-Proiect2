@@ -2,6 +2,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import functionalities.MovieData;
+import inputmplementation.UserData;
 
 import java.util.ArrayList;
 
@@ -18,9 +19,10 @@ final class Output {
                                 final ArrayList<MovieData> currentMoviesList,
                                 final UserData currUser, final ObjectMapper objectMapper) {
         ObjectNode out2 = objectMapper.createObjectNode();
+        UserData tmp = new UserData(currUser);
         out2.set("error", null);
         out2.putPOJO("currentMoviesList", currentMoviesList);
-        out2.putPOJO("currentUser", currUser).deepCopy();
+        out2.putPOJO("currentUser", tmp).deepCopy();
         output.add(out2.deepCopy()).deepCopy();
     }
 

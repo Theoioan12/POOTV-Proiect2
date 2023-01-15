@@ -1,5 +1,6 @@
+package inputmplementation;
+
 import functionalities.MovieData;
-import inputmplementation.CredentialsInput;
 
 import java.util.ArrayList;
 public final class UserData {
@@ -11,13 +12,13 @@ public final class UserData {
     private ArrayList<MovieData> watchedMovies;
     private ArrayList<MovieData> likedMovies;
     private ArrayList<MovieData> ratedMovies;
-    private ArrayList<String> notifications;
+    private ArrayList<Notification> notifications;
 
-    public ArrayList<String> getNotifications() {
+    public ArrayList<Notification> getNotifications() {
         return notifications;
     }
 
-    public void setNotifications(final ArrayList<String> notifications) {
+    public void setNotifications(final ArrayList<Notification> notifications) {
         this.notifications = notifications;
     }
 
@@ -91,12 +92,13 @@ public final class UserData {
 
     }
     public UserData(final UserData userData) {
-        this.credentials = new CredentialsInput();
+        this.setCredentials(userData.getCredentials());
         this.setNumFreePremiumMovies(userData.getNumFreePremiumMovies());
         this.setTokensCount(userData.tokensCount);
         this.purchasedMovies = new ArrayList<MovieData>();
         this.watchedMovies = new ArrayList<MovieData>();
         this.likedMovies = new ArrayList<MovieData>();
         this.ratedMovies = new ArrayList<MovieData>();
+        this.setNotifications(userData.getNotifications());
     }
 }

@@ -1,5 +1,10 @@
 Starting audit...
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\functionalities\DataBaseAdd.java:5:8: Unused import - inputmplementation.Notification. [UnusedImports]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\functionalities\Strategy.java:6:31: '(' is preceded with whitespace. [MethodParamPad]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\functionalities\Strategy1.java:7:22: Parameter inputData should be final. [FinalParameters]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\functionalities\Strategy2.java:5:40: '{' is not preceded with whitespace. [WhitespaceAround]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\functionalities\Strategy2.java:7:22: Parameter inputData should be final. [FinalParameters]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:7:34: '15' is a magic number. [MagicNumber]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Test.java:9:28: Using the '.*' form of import should be avoided - java.util.concurrent.*. [AvoidStarImport]
-[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\UserData.java:6:34: '15' is a magic number. [MagicNumber]
 Audit done.
-Checkstyle ends with 2 errors.
+Checkstyle ends with 7 errors.
