@@ -1,11 +1,14 @@
 import com.fasterxml.jackson.databind.ObjectWriter;
-import functionalities.*;
+import functionalities.Filter;
+import functionalities.Filter1;
+import functionalities.Filter2;
+import functionalities.Login;
+import functionalities.MovieData;
+import functionalities.DataBaseAdd;
 import inputmplementation.InputData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import inputmplementation.Notification;
 import inputmplementation.UserData;
-//import inputmplementation.UsersInput;
 
 import java.io.File;
 import java.io.IOException;
@@ -133,18 +136,17 @@ public final class Main {
                             currentMoviesList, currUser, objectMapper);
 
                     if (inputData.getActions().get(i).getFilters().getContains() != null) {
-                        Strategy strategy = new Strategy1();
+                        Filter filter = new Filter1();
                         if (inputData.getActions().get(i).getFilters().
                                 getContains().getActors() != null) {
                             if (inputData.getActions().get(i).getFilters().
                                     getContains().getGenre() != null) {
-                                strategy = new Strategy1();
+                                filter = new Filter1();
                             }
                         } else {
-                            strategy = new Strategy2();
+                            filter = new Filter2();
                         }
-                        strategy.filter(inputData,
-                                currentMoviesList, i,
+                        filter.filter(inputData, currentMoviesList, i,
                                 filteredMovies);
                     }
 
@@ -165,7 +167,6 @@ public final class Main {
                 } else {
                     outputGenerator.outputErrorGenerator(output, objectMapper);
                 }
-
             } else if (inputData.getActions().get(i).getType().equals("back")
                     && (currPage.equals("Homepage Autentificat"))) {
                 outputGenerator.outputErrorGenerator(output, objectMapper);
