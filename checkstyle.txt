@@ -9,7 +9,7 @@ Starting audit...
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:164:63: 'likedMovies' hides a field. [HiddenField]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:174:63: 'ratedMovies' hides a field. [HiddenField]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:184:68: 'notifications' hides a field. [HiddenField]
-[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Main.java:2:23: Using the '.*' form of import should be avoided - functionalities.*. [AvoidStarImport]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Main.java:26:5: Method length is 185 lines (max allowed is 150). [MethodLength]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Test.java:9:28: Using the '.*' form of import should be avoided - java.util.concurrent.*. [AvoidStarImport]
 Audit done.
 Checkstyle ends with 12 errors.
