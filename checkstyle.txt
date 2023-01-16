@@ -1,8 +1,15 @@
 Starting audit...
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\functionalities\FilterFactory.java:3:1: Utility classes should not have a public or default constructor. [HideUtilityClassConstructor]
-[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:7:34: '15' is a magic number. [MagicNumber]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:83:38: '15' is a magic number. [MagicNumber]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:107:44: '15' is a magic number. [MagicNumber]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:124:46: 'tokensCount' hides a field. [HiddenField]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:134:55: 'numFreePremiumMovies' hides a field. [HiddenField]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:144:67: 'purchasedMovies' hides a field. [HiddenField]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:154:65: 'watchedMovies' hides a field. [HiddenField]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:164:63: 'likedMovies' hides a field. [HiddenField]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:174:63: 'ratedMovies' hides a field. [HiddenField]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:184:68: 'notifications' hides a field. [HiddenField]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Main.java:2:23: Using the '.*' form of import should be avoided - functionalities.*. [AvoidStarImport]
-[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Main.java:8:8: Unused import - inputmplementation.UsersInput. [UnusedImports]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Test.java:9:28: Using the '.*' form of import should be avoided - java.util.concurrent.*. [AvoidStarImport]
 Audit done.
-Checkstyle ends with 5 errors.
+Checkstyle ends with 12 errors.

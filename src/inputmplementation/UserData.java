@@ -4,7 +4,7 @@ import functionalities.MovieData;
 
 import java.util.ArrayList;
 public final class UserData {
-    private int standardMovies = 15;
+    //private int standardMovies = 15;
     private CredentialsInput credentials;
     private int tokensCount;
     private int numFreePremiumMovies;
@@ -80,7 +80,7 @@ public final class UserData {
 
     public UserData(final CredentialsInput credentials) {
         this.credentials = credentials;
-        this.setNumFreePremiumMovies(standardMovies);
+        this.setNumFreePremiumMovies(15);
         this.setTokensCount(0);
         this.purchasedMovies = new ArrayList<MovieData>();
         this.watchedMovies = new ArrayList<MovieData>();
@@ -100,5 +100,100 @@ public final class UserData {
         this.likedMovies = new ArrayList<MovieData>();
         this.ratedMovies = new ArrayList<MovieData>();
         this.setNotifications(userData.getNotifications());
+    }
+    public static class Builder {
+        private CredentialsInput credentials;
+        private int tokensCount = 0;
+        private int numFreePremiumMovies = 15;
+        private ArrayList<MovieData> purchasedMovies = new ArrayList<>();
+        private ArrayList<MovieData> watchedMovies = new ArrayList<>();
+        private ArrayList<MovieData> likedMovies = new ArrayList<>();
+        private ArrayList<MovieData> ratedMovies = new ArrayList<>();
+        private ArrayList<Notification> notifications = new ArrayList<>();
+
+
+        public Builder(final CredentialsInput credentials) {
+            this.credentials = credentials;
+        }
+
+        /**
+         *
+         * @param tokensCount
+         * @return
+         */
+        public Builder tokensCount(final int tokensCount) {
+            this.tokensCount = tokensCount;
+            return this;
+        }
+
+        /**
+         *
+         * @param numFreePremiumMovies
+         * @return
+         */
+        public Builder numFreePremiumMovies(final int numFreePremiumMovies) {
+            this.numFreePremiumMovies = numFreePremiumMovies;
+            return this;
+        }
+
+        /**
+         *
+         * @param purchasedMovies
+         * @return
+         */
+        public Builder purchasedMovies(final ArrayList<MovieData> purchasedMovies) {
+            this.purchasedMovies = purchasedMovies;
+            return this;
+        }
+
+        /**
+         *
+         * @param watchedMovies
+         * @return
+         */
+        public Builder watchedMovies(final ArrayList<MovieData> watchedMovies) {
+            this.watchedMovies = watchedMovies;
+            return this;
+        }
+
+        /**
+         *
+         * @param likedMovies
+         * @return
+         */
+        public Builder likedMovies(final ArrayList<MovieData> likedMovies) {
+            this.likedMovies = likedMovies;
+            return this;
+        }
+
+        /**
+         *
+         * @param ratedMovies
+         * @return
+         */
+        public Builder ratedMovies(final ArrayList<MovieData> ratedMovies) {
+            this.ratedMovies = ratedMovies;
+            return this;
+        }
+
+        /**
+         *
+         * @param notifications
+         * @return
+         */
+        public Builder notifications(final ArrayList<Notification> notifications) {
+            this.notifications = notifications;
+            return this;
+        }
+    }
+    private UserData(final Builder builder) {
+        this.credentials = builder.credentials;
+        this.tokensCount = builder.tokensCount;
+        this.numFreePremiumMovies = builder.numFreePremiumMovies;
+        this.purchasedMovies = builder.purchasedMovies;
+        this.watchedMovies = builder.watchedMovies;
+        this.ratedMovies = builder.ratedMovies;
+        this.likedMovies = builder.likedMovies;
+        this.notifications = builder.notifications;
     }
 }
