@@ -18,8 +18,9 @@
   Register sunt si ele la fel ca in prima etapa, doar ca de data asta
   se regasesc in pachetul functionalities.
 
-  Pachetul functionalities
-   Aici apar primele diferente, intrucat am ales sa implementez clasa
+Pachetul functionalities: 
+
+Aici apar primele diferente, intrucat am ales sa implementez clasa
   Filter, folosind design patternul strategy, deoarece consider
   ca filtrarea se poate face folosind doi algoritmi diferiti(aproape chiar
   trei, insa in implementarea am ales pentru optiunea care mi-a fost cel
