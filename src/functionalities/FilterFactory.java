@@ -1,7 +1,12 @@
 package functionalities;
 
-public class FilterFactory {
-    public static Filter createFilter(int type) {
+public final class FilterFactory {
+    /**
+     *
+     * @param type
+     * @return
+     */
+    public static Filter createFilter(final int type) {
         switch (type) {
             case 1: return new Filter1();
             default: return new Filter2();

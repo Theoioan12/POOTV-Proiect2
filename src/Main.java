@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectWriter;
 import functionalities.*;
+import inputmplementation.CredentialsInput;
 import inputmplementation.InputData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -97,34 +98,18 @@ public final class Main {
                     }
                 } else if (currPage.equals("register")
                         && inputData.getActions().get(i).getFeature().equals("register")) {
-                    //UsersInput tmp = new UsersInput(inputData.
-                    // getActions().get(i).getCredentials());
-                    //Register register = new Register();
-                    //register.register(inputData.getUsers(), tmp);
+                    CredentialsInput tmp = inputData.getActions().get(i).getCredentials();
+                    Register register = new Register();
+                    register.register(inputData.getUsers(), tmp);
                     currPage = "Homepage Autentificat";
                     currUser =
                             new UserData(inputData.getActions().get(i).getCredentials());
                     outputGenerator.outputgenerator(output,
                             currentMoviesList, currUser, objectMapper);
-                    for (int j = 0; j < inputData.getMovies().size(); j++) {
-                        boolean ok = false;
-                        MovieData tmp = new MovieData(inputData.getMovies().get(j));
-                        for (int k = 0; k < tmp.getCountriesBanned().size(); k++) {
-                            if (currUser != null) {
-                                // checking if it is banned in the country
-                                if (tmp.getCountriesBanned().get(k).
-                                        equals(currUser.getCredentials().getCountry())) {
-                                    // if it is banned I stop the search
-                                    ok = true;
-                                    break;
-                                }
-                            }
+                    BannedCountries check = new BannedCountries();
+                    check.bannedCheck(inputData, currUser,
+                            availableMoviesList);
 
-                        }
-                        if (!ok) {
-                            availableMoviesList.add(tmp);
-                        }
-                    }
                 } else if (currPage.equals("movies")
                         && inputData.getActions().get(i).getFeature().equals("filter")) {
                     outputGenerator.outputgenerator(output,
@@ -148,8 +133,13 @@ public final class Main {
 
                 } else if (currPage.equals("movies")
                         && inputData.getActions().get(i).getFeature().equals("search")) {
-                    outputGenerator.outputgenerator(output,
-                            currentMoviesList, currUser, objectMapper);
+                     if (availableMoviesList.contains(inputData.
+                             getActions().get(i).getStartsWith())) {
+                        continue;
+                    } else {
+                        outputGenerator.outputgenerator(output,
+                                currentMoviesList, currUser, objectMapper);
+                    }
 
                 } else if (currPage != "movies"
                         && inputData.getActions().get(i).getFeature().equals("subscribe")) {

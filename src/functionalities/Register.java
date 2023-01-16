@@ -1,5 +1,6 @@
 package functionalities;
 
+import inputmplementation.CredentialsInput;
 import inputmplementation.UsersInput;
 
 import java.util.ArrayList;
@@ -8,9 +9,11 @@ public final class Register {
     /**
      *
      * @param users
-     * @param tmpUser
+     * @param tmpCred
      */
-    public void register(final ArrayList<UsersInput> users, final UsersInput tmpUser) {
-        users.add(tmpUser);
+    public void register(final ArrayList<UsersInput> users, final CredentialsInput tmpCred) {
+        UsersInput tmp = new UsersInput();
+        tmp.setCredentials(tmpCred);
+        users.add(tmp);
     }
 }
