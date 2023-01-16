@@ -1,3 +1,6 @@
+// Buliga Theodor Ioan
+// 323 CA
+
 package inputmplementation;
 
 public final class ActionsInput {

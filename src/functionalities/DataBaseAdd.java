@@ -1,3 +1,6 @@
+// Buliga Theodor Ioan
+// 323 CA
+
 package functionalities;
 
 import inputmplementation.InputData;
@@ -12,12 +15,8 @@ public final class DataBaseAdd {
      * @param currUser
      */
     public void add(final InputData inputData, final MoviesInput movie, final UserData currUser) {
-        int ok;
-        if (inputData.getMovies().contains(movie)) {
-            ok = -1;
-        } else {
+        if (!inputData.getMovies().contains(movie)) {
             inputData.getMovies().add(movie);
-            ok = 0;
         }
     }
 

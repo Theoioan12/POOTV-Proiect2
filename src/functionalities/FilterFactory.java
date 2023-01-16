@@ -1,3 +1,6 @@
+// Buliga Theodor Ioan
+// 323 CA
+
 package functionalities;
 
 public final class FilterFactory {
@@ -11,6 +14,9 @@ public final class FilterFactory {
             case 1: return new Filter1();
             default: return new Filter2();
         }
+
+    }
+    private FilterFactory() {
 
     }
 }

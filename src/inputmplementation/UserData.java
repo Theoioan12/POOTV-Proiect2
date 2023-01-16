@@ -1,3 +1,6 @@
+// Buliga Theodor Ioan
+// 323 CA
+
 package inputmplementation;
 
 import functionalities.MovieData;
@@ -101,7 +104,7 @@ public final class UserData {
         this.ratedMovies = new ArrayList<MovieData>();
         this.setNotifications(userData.getNotifications());
     }
-    public static class Builder {
+    public static final class Builder {
         private CredentialsInput credentials;
         private int tokensCount = 0;
         private int numFreePremiumMovies = 15;
@@ -112,78 +115,87 @@ public final class UserData {
         private ArrayList<Notification> notifications = new ArrayList<>();
 
 
-        public Builder(final CredentialsInput credentials) {
-            this.credentials = credentials;
+        public Builder(final CredentialsInput crdentials) {
+            this.credentials = crdentials;
         }
 
         /**
          *
-         * @param tokensCount
+         * @param tkensCount
          * @return
          */
-        public Builder tokensCount(final int tokensCount) {
-            this.tokensCount = tokensCount;
+        public Builder tokensCount(final int tkensCount) {
+            this.tokensCount = tkensCount;
             return this;
         }
 
         /**
          *
-         * @param numFreePremiumMovies
+         * @param nmFreePremiumMovies
          * @return
          */
-        public Builder numFreePremiumMovies(final int numFreePremiumMovies) {
-            this.numFreePremiumMovies = numFreePremiumMovies;
+        public Builder numFreePremiumMovies(final int nmFreePremiumMovies) {
+            this.numFreePremiumMovies = nmFreePremiumMovies;
             return this;
         }
 
         /**
          *
-         * @param purchasedMovies
+         * @param prchasedMovies
          * @return
          */
-        public Builder purchasedMovies(final ArrayList<MovieData> purchasedMovies) {
-            this.purchasedMovies = purchasedMovies;
+        public Builder purchasedMovies(final ArrayList<MovieData> prchasedMovies) {
+            this.purchasedMovies = prchasedMovies;
             return this;
         }
 
         /**
          *
-         * @param watchedMovies
+         * @param wtchedMovies
          * @return
          */
-        public Builder watchedMovies(final ArrayList<MovieData> watchedMovies) {
-            this.watchedMovies = watchedMovies;
+        public Builder watchedMovies(final ArrayList<MovieData> wtchedMovies) {
+            this.watchedMovies = wtchedMovies;
             return this;
         }
 
         /**
          *
-         * @param likedMovies
+         * @param lkedMovies
          * @return
          */
-        public Builder likedMovies(final ArrayList<MovieData> likedMovies) {
-            this.likedMovies = likedMovies;
+        public Builder likedMovies(final ArrayList<MovieData> lkedMovies) {
+            this.likedMovies = lkedMovies;
             return this;
         }
 
         /**
          *
-         * @param ratedMovies
+         * @param rtedMovies
          * @return
          */
-        public Builder ratedMovies(final ArrayList<MovieData> ratedMovies) {
-            this.ratedMovies = ratedMovies;
+        public Builder ratedMovies(final ArrayList<MovieData> rtedMovies) {
+            this.ratedMovies = rtedMovies;
             return this;
         }
 
         /**
          *
-         * @param notifications
+         * @param ntifications
          * @return
          */
-        public Builder notifications(final ArrayList<Notification> notifications) {
-            this.notifications = notifications;
+        public Builder notifications(final ArrayList<Notification> ntifications) {
+            this.notifications = ntifications;
             return this;
+        }
+
+        /**
+         *
+         * @return
+         */
+
+        public UserData build() {
+            return new UserData(this);
         }
     }
     private UserData(final Builder builder) {

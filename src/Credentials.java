@@ -1,3 +1,6 @@
+// Buliga Theodor Ioan
+// 323 CA
+
 public final class Credentials {
     private String name;
     private String password;

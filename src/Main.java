@@ -1,3 +1,6 @@
+// Buliga Theodor Ioan
+// 323 CA
+
 import com.fasterxml.jackson.databind.ObjectWriter;
 import functionalities.BannedCountries;
 import functionalities.DataBaseAdd;
@@ -130,8 +133,9 @@ public final class Main {
                     Register register = new Register();
                     register.register(inputData.getUsers(), tmp);
                     currPage = "Homepage Autentificat";
-                    currUser =
-                            new UserData(inputData.getActions().get(i).getCredentials());
+                    currUser = new UserData.Builder(inputData.
+                            getActions().get(i).getCredentials()).build();
+
                     outputGenerator.outputgenerator(output,
                             currentMoviesList, currUser, objectMapper);
                     BannedCountries check = new BannedCountries();
