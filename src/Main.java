@@ -1,7 +1,5 @@
 import com.fasterxml.jackson.databind.ObjectWriter;
-import functionalities.DataBaseAdd;
-import functionalities.Login;
-import functionalities.MovieData;
+import functionalities.*;
 import inputmplementation.InputData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -38,6 +36,7 @@ public final class Main {
         int commandCount = inputData.getActions().size();
 
         String subscribed = "-1";
+        String previousPage = null;
 
         // current user
         UserData currUser = null;
@@ -47,6 +46,8 @@ public final class Main {
         // observable
         ArrayList<MovieData> availableMoviesList = new ArrayList<>();
 
+        ArrayList<MovieData> filteredMovies = new ArrayList<>();
+
         // command loop
         for (int i = 0; i < commandCount; i++) {
             // change page command type
@@ -55,10 +56,11 @@ public final class Main {
                     // login page
                     if (inputData.getActions().get(i).getPage().equals("login")) {
                         currPage = "login";
-
+                        previousPage = "Homepage Neautentificat";
                         // register page
                     } else if (inputData.getActions().get(i).getPage().equals("register")) {
                         currPage = "register";
+                        previousPage = "Homepage Neautentificat";
 
                         // error
                     } else {
@@ -69,6 +71,7 @@ public final class Main {
                 } else if (inputData.getActions().get(i).getPage().equals("movies")
                         && currPage.equals("Homepage Autentificat")) {
                     currPage = "movies";
+                    previousPage = "Homepage Autentificat";
                     outputGenerator.outputgenerator(output,
                             availableMoviesList, currUser, objectMapper);
                 } else {
@@ -101,7 +104,6 @@ public final class Main {
                     //Register register = new Register();
                     //register.register(inputData.getUsers(), tmp);
                     currPage = "Homepage Autentificat";
-                    //if (i < inputData.getUsers().size())
                     currUser =
                             new UserData(inputData.getActions().get(i).getCredentials());
                     outputGenerator.outputgenerator(output,
@@ -130,6 +132,22 @@ public final class Main {
                     outputGenerator.outputgenerator(output,
                             currentMoviesList, currUser, objectMapper);
 
+                    if (inputData.getActions().get(i).getFilters().getContains() != null) {
+                        Strategy strategy = new Strategy1();
+                        if (inputData.getActions().get(i).getFilters().
+                                getContains().getActors() != null) {
+                            if (inputData.getActions().get(i).getFilters().
+                                    getContains().getGenre() != null) {
+                                strategy = new Strategy1();
+                            }
+                        } else {
+                            strategy = new Strategy2();
+                        }
+                        strategy.filter(inputData,
+                                currentMoviesList, i,
+                                filteredMovies);
+                    }
+
                 } else if (currPage.equals("movies")
                         && inputData.getActions().get(i).getFeature().equals("search")) {
                     outputGenerator.outputgenerator(output,
@@ -141,10 +159,8 @@ public final class Main {
                 } else if (inputData.getActions().get(i).getType().equals("database")) {
                     if (inputData.getActions().get(i).getFeature().equals("add")) {
                         DataBaseAdd add = new DataBaseAdd();
-                        //if (subscribed != "-1")
                         add.add(inputData, inputData.getActions().get(i).getAddedMovie(), currUser);
-                        //outputGenerator.outputErrorGenerator(output, objectMapper);
-                        //}
+
                     }
                 } else {
                     outputGenerator.outputErrorGenerator(output, objectMapper);
@@ -154,18 +170,11 @@ public final class Main {
                     && (currPage.equals("Homepage Autentificat"))) {
                 outputGenerator.outputErrorGenerator(output, objectMapper);
             }  else if (inputData.getActions().get(i).getType().equals("back")) {
-                currPage = "Homepage Autentificat";
+                currPage = previousPage;
             }
         }
         if (currUser.getCredentials().getAccountType().equals("premium")) {
-            Notification notification = new Notification();
-            notification.setMovieName("No recommendation");
-            notification.setMessage("Recommendation");
-            UserData tmp = new UserData(currUser);
-            tmp.setNotifications(new ArrayList<>());
-            tmp.getNotifications().add(notification);
-            ArrayList<MovieData> tmp2 = null;
-            outputGenerator.outputgenerator(output, tmp2, tmp, objectMapper);
+            outputGenerator.finalOutput(output, currUser, objectMapper);
         }
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(out, output);

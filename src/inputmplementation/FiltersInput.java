@@ -1,6 +1,6 @@
 package inputmplementation;
 
-final class FiltersInput {
+public final class FiltersInput {
     private ContainsInput contains;
     private SortInput sort;
 

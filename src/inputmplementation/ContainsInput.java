@@ -1,7 +1,7 @@
 package inputmplementation;
 import java.util.ArrayList;
 
-final class ContainsInput {
+public final class ContainsInput {
     private ArrayList<String> genre;
     private ArrayList<String> actors;
 
