@@ -2,6 +2,10 @@ Starting audit...
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:86:38: '15' is a magic number. [MagicNumber]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:110:44: '15' is a magic number. [MagicNumber]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Main.java:29:5: Method length is 186 lines (max allowed is 150). [MethodLength]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Test.java:1: File does not end with a newline. [NewlineAtEndOfFile]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Test.java:9:28: Using the '.*' form of import should be avoided - java.util.concurrent.*. [AvoidStarImport]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Test.java:158: Line is longer than 100 characters (found 108). [LineLength]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Test.java:206:65: Parameter testFileName should be final. [FinalParameters]
+[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Test.java:222: Line is longer than 100 characters (found 108). [LineLength]
 Audit done.
-Checkstyle ends with 4 errors.
+Checkstyle ends with 8 errors.

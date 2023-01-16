@@ -133,21 +133,16 @@ public final class Test {
         Config config = loadConfig();
         totalScore = config.getCheckstyleScore();
         int manualScore = config.getReadmeScore() + config.getHomeworkDesignScore();
-        //int i = 0;//
+
         for (final File testFile : Objects.requireNonNull(TEST_INPUTS_FILE.listFiles())) {
-            //if (i == 0) {
-                String testFileName = testFile.getName();
+            String testFileName = testFile.getName();
 
-                preTestCleanUp();
+            preTestCleanUp();
 
-                final String[] testArgv = createTestArgv(testFile, testFileName);
-                final Future<Object> future = createTimerTask(testArgv);
+            final String[] testArgv = createTestArgv(testFile, testFileName);
+            final Future<Object> future = createTimerTask(testArgv);
 
-                runTest(testFileName, config, future);
-            //}
-
-            //i++;//
-            //if (i == 6) break;
+            runTest(testFileName, config, future);
         }
 
         score += Checkstyle.testCheckstyle();
@@ -160,8 +155,7 @@ public final class Test {
         System.out.println("This value can be exceeded for great implementations.");
     }
 
-    private static void runTest(final String testFileName,
-                                final Config config, final Future<Object> task) {
+    private static void runTest(final String testFileName, final Config config, final Future<Object> task) {
         ObjectMapper objectMapper = new ObjectMapper();
         File refFile = new File(CHECKER_RESOURCES_FOLDER + REF_FOLDER + testFileName);
 
@@ -209,7 +203,7 @@ public final class Test {
         return executor.submit(task);
     }
 
-    private static String[] createTestArgv(final File testFile, final String testFileName) {
+    private static String[] createTestArgv(final File testFile, String testFileName) {
         List<String> listArgv = new ArrayList<>();
         listArgv.add(testFile.getAbsolutePath());
         listArgv.add(OUT_FILE);
@@ -225,8 +219,7 @@ public final class Test {
         printMessage(testFileName, message, false);
     }
 
-    private static void printMessage(final String testFileName,
-                                     final String message, final boolean trail) {
+    private static void printMessage(final String testFileName, final String message, final boolean trail) {
         String fileName = testFileName.split("\\.")[0];
         if (trail) {
             System.out.println("[" + fileName + "]: ..................... " + message);

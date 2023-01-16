@@ -7,7 +7,7 @@ import inputmplementation.InputData;
 import inputmplementation.MoviesInput;
 import inputmplementation.UserData;
 
-public final class DataBaseAdd {
+public final class DatabaseAdd {
     /**
      *
      * @param inputData

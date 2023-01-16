@@ -3,7 +3,7 @@
 
 import com.fasterxml.jackson.databind.ObjectWriter;
 import functionalities.BannedCountries;
-import functionalities.DataBaseAdd;
+import functionalities.DatabaseAdd;
 import functionalities.Filter;
 import functionalities.FilterFactory;
 import functionalities.Login;
@@ -184,7 +184,7 @@ public final class Main {
                     // database add
                 } else if (inputData.getActions().get(i).getType().equals("database")) {
                     if (inputData.getActions().get(i).getFeature().equals("add")) {
-                        DataBaseAdd add = new DataBaseAdd();
+                        DatabaseAdd add = new DatabaseAdd();
                         add.add(inputData, inputData.getActions().get(i).getAddedMovie(), currUser);
                     }
 
