@@ -2,7 +2,6 @@ package functionalities;
 
 import inputmplementation.InputData;
 import inputmplementation.MoviesInput;
-import inputmplementation.Notification;
 import inputmplementation.UserData;
 
 public final class DataBaseAdd {
@@ -18,13 +17,8 @@ public final class DataBaseAdd {
             ok = -1;
         } else {
             inputData.getMovies().add(movie);
-            //Notification tmp = new Notification();
-            //tmp.setMessage("Recommendation");
-            //tmp.setMovieName("No recommendation");
-            //currUser.getNotifications().add(tmp);
             ok = 0;
         }
-        //return ok;
     }
 
 }

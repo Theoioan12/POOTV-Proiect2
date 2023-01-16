@@ -1,10 +1,5 @@
 import com.fasterxml.jackson.databind.ObjectWriter;
-import functionalities.Filter;
-import functionalities.Filter1;
-import functionalities.Filter2;
-import functionalities.Login;
-import functionalities.MovieData;
-import functionalities.DataBaseAdd;
+import functionalities.*;
 import inputmplementation.InputData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -134,18 +129,19 @@ public final class Main {
                         && inputData.getActions().get(i).getFeature().equals("filter")) {
                     outputGenerator.outputgenerator(output,
                             currentMoviesList, currUser, objectMapper);
-
+                    int type = 2;
                     if (inputData.getActions().get(i).getFilters().getContains() != null) {
-                        Filter filter = new Filter1();
+
                         if (inputData.getActions().get(i).getFilters().
                                 getContains().getActors() != null) {
                             if (inputData.getActions().get(i).getFilters().
                                     getContains().getGenre() != null) {
-                                filter = new Filter1();
+                                type = 1;
                             }
                         } else {
-                            filter = new Filter2();
+                            type = 2;
                         }
+                        Filter filter = FilterFactory.createFilter(type);
                         filter.filter(inputData, currentMoviesList, i,
                                 filteredMovies);
                     }

@@ -1,7 +1,6 @@
 Starting audit...
-[ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\functionalities\DataBaseAdd.java:5:8: Unused import - inputmplementation.Notification. [UnusedImports]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\inputmplementation\UserData.java:7:34: '15' is a magic number. [MagicNumber]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Main.java:24:5: Method length is 159 lines (max allowed is 150). [MethodLength]
 [ERROR] C:\Users\titi\Desktop\POOTV-Proiect2\.\src\Test.java:9:28: Using the '.*' form of import should be avoided - java.util.concurrent.*. [AvoidStarImport]
 Audit done.
-Checkstyle ends with 4 errors.
+Checkstyle ends with 3 errors.

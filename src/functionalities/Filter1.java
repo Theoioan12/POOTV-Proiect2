@@ -9,14 +9,7 @@ public final class Filter1 extends Filter {
     public void filter(final InputData inputData,
                        final ArrayList<MovieData> currentMoviesList, final int i,
                        final ArrayList<MovieData> filteredMovies) {
-        //String actor = null;
 
-        // this variable tells me in which case I am
-        // if it is 1 I have an actor filter
-        // if it is 2 I have a genre filter
-        //int var = 1;
-        //filteredMovies = new ArrayList<MovieData>();
-       // boolean ok = false;
         if (currentMoviesList.size() > 0) {
             for (int j = 0; j < currentMoviesList.size() && this.getVar() == 1; j++) {
                 this.setOk(false);
